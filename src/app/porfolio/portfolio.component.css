@@ -37,7 +37,7 @@ img {
 }
 
 .slider{
-   position: absolute;
+   position: fixed;
    z-index: 100;
    top: 50px;
    height: 100vh;

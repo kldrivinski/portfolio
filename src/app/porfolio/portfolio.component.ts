@@ -16,60 +16,14 @@ export class PortfolioComponent implements OnInit {
 
   defaultTouch = { x: 0, y: 0, time: 0 };
 
+
   @HostListener("window:keydown", ['$event'])
-  @HostListener("touchstart", ['$event'])
-  @HostListener("touchend", ['$event'])
-  @HostListener("touchcancel", ['$event'])
-
-
-
-  // eventHanlder(event) {
-  //   let touch = event.touches[0] || event.changedTouches[0];
-
-  //   // check the events
-  //   if (event.type === 'touchstart') {
-  //     this.defaultTouch.x = touch.pageX;
-  //     this.defaultTouch.y = touch.pageY;
-  //     this.defaultTouch.time = event.timeStamp;
-  //   } else if (event.type === 'touchend') {
-  //     let deltaX = touch.pageX - this.defaultTouch.x;
-  //     let deltaY = touch.pageY - this.defaultTouch.y;
-  //     let deltaTime = event.timeStamp - this.defaultTouch.time;
-
-  //     // simulte a swipe -> less than 500 ms and more than 60 px
-  //     if (deltaTime < 500) {
-  //       // touch movement lasted less than 500 ms
-  //       if (Math.abs(deltaX) > 60) {
-  //         // delta x is at least 60 pixels
-  //         if (deltaX > 0) {
-  //           this.doSwipeRight(event);
-  //         } else {
-  //           this.doSwipeLeft(event);
-  //         }
-  //       }
-
-  //     }
-  //   }
-  // }
-
-
-
-  // doSwipeLeft(event) {
-  //   console.log('swipe left', event);
-  //   this.prev();
-
-  // }
-
-  // doSwipeRight(event) {
-  //   console.log('swipe right', event);
-  //   this.next();
-
-  // }
 
 
   onKeyDown(event) {
 
     if (event.key == 'ArrowRight') {
+      console.log(event)
       this.next();
     }
     if (event.key == 'ArrowLeft') {
@@ -80,6 +34,57 @@ export class PortfolioComponent implements OnInit {
     }
 
   }
+
+  @HostListener("touchstart", ['$event'])
+  @HostListener("touchend", ['$event'])
+  @HostListener("touchcancel", ['$event'])
+
+  eventHanlder(event) {
+    let touch = event.touches[0] || event.changedTouches[0];
+
+    // check the events
+    if (event.type === 'touchstart') {
+      this.defaultTouch.x = touch.pageX;
+      this.defaultTouch.y = touch.pageY;
+      this.defaultTouch.time = event.timeStamp;
+    } else if (event.type === 'touchend') {
+      let deltaX = touch.pageX - this.defaultTouch.x;
+      let deltaY = touch.pageY - this.defaultTouch.y;
+      let deltaTime = event.timeStamp - this.defaultTouch.time;
+
+      // simulte a swipe -> less than 500 ms and more than 60 px
+      if (deltaTime < 500) {
+        // touch movement lasted less than 500 ms
+        if (Math.abs(deltaX) > 60) {
+          // delta x is at least 60 pixels
+          if (deltaX > 0) {
+            this.doSwipeRight(event);
+          } else {
+            this.doSwipeLeft(event);
+          }
+        }
+
+      }
+    }
+  }
+
+
+
+
+  doSwipeLeft(event) {
+    console.log('swipe left', event);
+    this.prev();
+
+  }
+
+  doSwipeRight(event) {
+    console.log('swipe right', event);
+    this.next();
+
+  }
+
+
+
 
   previews: imageUrl[] = [];
   beyond: imageUrl[] = [];
