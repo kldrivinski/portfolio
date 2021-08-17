@@ -1,0 +1,13 @@
+.mobile{
+    display: none;
+}
+
+@media (max-width: 800px){
+.mobile {
+    display:inline;
+}
+
+.desktop{
+    display:none;
+}
+}

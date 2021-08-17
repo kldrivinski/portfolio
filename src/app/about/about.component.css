@@ -1,0 +1,16 @@
+ul {
+    margin: 20px 20px 20px 20px;
+    list-style: none;
+    padding-inline-start: 0px;
+    padding: 0em 1em 0em 0em;
+}
+
+ li {
+    padding: 0em 0em 1em 0em;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {color:black;}

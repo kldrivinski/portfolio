@@ -1,0 +1,28 @@
+<!-- 
+<p> input item {{item}}</p>
+<label>Add an item <input #newItem></label>
+
+
+<button (click)="addNewItem(newItem.value)">"Add to parent's list</button>
+-->
+<div class="projects">
+    <div class="images" *ngFor="let image of previews; index as i" (click)="nav(i)" (click)="setIndex(i)">
+        <!-- [style.visibility]="gridvisible ? 'visible' : 'hidden'" -->
+        <img src="https://live.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+    </div>
+
+    <!-- [style.visibility]="slidevisible ? 'visible' : 'hidden'" -->
+    <!-- *ngFor="let image of imgArray; index as i" -->
+    <!-- (keydown)="onKeyDown($event)" -->
+    <div tabindex="0" class="slider" [style.visibility]="slidevisible ? 'visible' : 'hidden'">
+        <button class="cross" (click)="toggleSlider()">
+            X
+        </button>
+        <button class="btn" id="one" (click)="prev()">&lt;</button>
+        <div class="img-box">
+            <img src="{{imgArray[0]}}" class="slider-img" />
+        </div>
+        <button class="btn" id="two" (click)="next()">&gt;</button>
+
+    </div>
+</div>
