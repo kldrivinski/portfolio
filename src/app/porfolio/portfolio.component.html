@@ -5,22 +5,23 @@
 
 <button (click)="addNewItem(newItem.value)">"Add to parent's list</button>
 -->
-<div class="projects">
-    <div class="images" *ngFor="let image of previews; index as i" (click)="nav(i)" (click)="setIndex(i)">
+<div class="projects" role="main">
+    <div class="images" *ngFor="let image of previews; index as i" (click)="nav(i)" (click)="setIndex(i)" role="feed">
         <!-- [style.visibility]="gridvisible ? 'visible' : 'hidden'" -->
-        <img src="https://live.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg" />
+        <img src="https://live.staticflickr.com/{{image.server}}/{{image.id}}_{{image.secret}}.jpg"
+            alt="preview photo" />
     </div>
 
     <!-- [style.visibility]="slidevisible ? 'visible' : 'hidden'" -->
     <!-- *ngFor="let image of imgArray; index as i" -->
     <!-- (keydown)="onKeyDown($event)" -->
-    <div tabindex="0" class="slider" [style.visibility]="slidevisible ? 'visible' : 'hidden'">
+    <div tabindex="0" class="slider" [style.visibility]="slidevisible ? 'visible' : 'hidden'" role="img">
         <button class="cross" (click)="toggleSlider()">
             X
         </button>
         <button class="btn" id="one" (click)="prev()">&lt;</button>
         <div class="img-box">
-            <img src="{{imgArray[0]}}" class="slider-img" />
+            <img src="{{imgArray[0]}}" class="slider-img" alt="portfolio images" />
         </div>
         <button class="btn" id="two" (click)="next()">&gt;</button>
 

@@ -160,51 +160,40 @@ export class PortfolioComponent implements OnInit {
     if (index == 2) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.micImg;
+      this.imgArray = this.brainwormsImg;
 
     }
     if (index == 3) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.peopleImg;
+      this.imgArray = this.mackinacImg;
 
     }
     if (index == 4) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.brainwormsImg;
+      this.imgArray = this.poolImg;
 
     }
     if (index == 5) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.mackinacImg;
+      this.imgArray = this.eveImg;
 
     }
     if (index == 6) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.poolImg;
+      this.imgArray = this.eloiseImg;
 
     }
     if (index == 7) {
       this.slidevisible = !this.slidevisible;
       this.gridvisible = !this.gridvisible;
-      this.imgArray = this.eveImg;
-
-    }
-    if (index == 8) {
-      this.slidevisible = !this.slidevisible;
-      this.gridvisible = !this.gridvisible;
-      this.imgArray = this.eloiseImg;
-
-    }
-    if (index == 9) {
-      this.slidevisible = !this.slidevisible;
-      this.gridvisible = !this.gridvisible;
       this.imgArray = this.roadImg;
 
     }
+
   }
 
 
@@ -274,40 +263,40 @@ export class PortfolioComponent implements OnInit {
       }
       );
 
-    this.projectService.getMic()
-      .subscribe((res: any) => {
-        console.log('mic res ' + res.photoset)
-        res.photoset.photo.forEach(ph => {
-          this.mic.push({
-            id: ph.id,
-            server: ph.server,
-            secret: ph.secret
-          });
-        });
+    // this.projectService.getMic()
+    //   .subscribe((res: any) => {
+    //     console.log('mic res ' + res.photoset)
+    //     res.photoset.photo.forEach(ph => {
+    //       this.mic.push({
+    //         id: ph.id,
+    //         server: ph.server,
+    //         secret: ph.secret
+    //       });
+    //     });
 
-        this.mic.forEach((ph, index) => {
-          var img = 'https://live.staticflickr.com/' + ph.server + '/' + ph.id + '_' + ph.secret + '.jpg';
-          this.micImg.push(img);
-        });
-      }
-      );
+    //     this.mic.forEach((ph, index) => {
+    //       var img = 'https://live.staticflickr.com/' + ph.server + '/' + ph.id + '_' + ph.secret + '.jpg';
+    //       //this.micImg.push(img);
+    //     });
+    //   }
+    //   );
 
-    this.projectService.getPeople()
-      .subscribe((res: any) => {
-        res.photoset.photo.forEach(ph => {
-          this.people.push({
-            id: ph.id,
-            server: ph.server,
-            secret: ph.secret
-          });
-        });
+    // this.projectService.getPeople()
+    //   .subscribe((res: any) => {
+    //     res.photoset.photo.forEach(ph => {
+    //       this.people.push({
+    //         id: ph.id,
+    //         server: ph.server,
+    //         secret: ph.secret
+    //       });
+    //     });
 
-        this.people.forEach((ph, index) => {
-          var img = 'https://live.staticflickr.com/' + ph.server + '/' + ph.id + '_' + ph.secret + '.jpg';
-          this.peopleImg.push(img);
-        });
-      }
-      );
+    //     this.people.forEach((ph, index) => {
+    //       var img = 'https://live.staticflickr.com/' + ph.server + '/' + ph.id + '_' + ph.secret + '.jpg';
+    //       //this.peopleImg.push(img);
+    //     });
+    //   }
+    //   );
 
     this.projectService.getBrainworms()
       .subscribe((res: any) => {
